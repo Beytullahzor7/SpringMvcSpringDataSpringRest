@@ -5,8 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-    <script th:src="@{/js/template.js}"></script>
 
 </head>
 <body>
@@ -49,22 +47,23 @@
             <li data-target="#carouselId" data-slide-to="0" class="active"></li>
             <li data-target="#carouselId" data-slide-to="1"></li>
             <li data-target="#carouselId" data-slide-to="2"></li>
+            <li data-target="#carouselId" data-slide-to="3"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-                <img src="../static/img/3.jpg" alt="First slide">
+                <img src="../static/img/1.jpg" alt="First slide">
             </div>
 
             <div class="carousel-item">
-                <img src="../static/img/1.jpg" alt="Second slide">
+                <img src="../static/img/3.jpg" alt="Second slide">
             </div>
 
             <div class="carousel-item">
-                <img src="../static/img/2.jpg" alt="Third slide">
+                <img src="static/img/2.jpg" alt="Third slide">
             </div>
 
             <div class="carousel-item">
-                <img src="../static/img/4.jpg" alt="Third slide">
+                <img src="../static/img/4.jpg" alt="Fourth slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
@@ -82,10 +81,9 @@
 
 <footer></footer>
 
-<h1 class="text-center text-primary">Anasayfa</h1>
-<p th:text="#{adi}"  ></p>
+<p th:text="#{adi}"></p>
+<h1 th:text=" 'Merhaba Thymeleaf' " class="text-center text-primary"></h1>
 
-<a href="templates/birinci">Click Me</a>
 
 
 
