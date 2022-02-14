@@ -58,7 +58,7 @@ public class PersonServices {
         productDtoList.add(ProductDto.builder().productId(0L).productName("urunAdi1").productPrice(66).build());
         productDtoList.add(ProductDto.builder().productId(0L).productName("urunAdi2").productPrice(66).build());
         productDtoList.add(ProductDto.builder().productId(0L).productName("urunAdi3").productPrice(66).build());
-        productDtoList.add(ProductDto.builder().productId(0L).productName("urunAdi4").productPrice(66).build());
+        productDtoList.add(ProductDto.builder().productId(0L).productName("urunAdi4").productPrice(56).build());
         return productDtoList;
     }
 }
