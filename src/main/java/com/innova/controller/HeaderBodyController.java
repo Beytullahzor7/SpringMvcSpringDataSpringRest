@@ -13,12 +13,13 @@ import org.springframework.web.client.RestTemplate;
 @Controller
 public class HeaderBodyController {
 
+    //REQUEST HEADER
     //Client servera gizli olarak data gönderir
     // Asagidaki link @RestControllera gidecek ve geri gelecek
     // http://localhost:8080/controller/client/header
     @GetMapping("/controller/client/header")
     @ResponseBody
-    public String getHeaderController(){
+    public String getRequestHeaderController(){
         String URL = "http://localhost:8080/service/client/header";
         RestTemplate restTemplate = new RestTemplate();
 
@@ -30,5 +31,20 @@ public class HeaderBodyController {
         ResponseEntity<String> responseEntity = restTemplate.exchange(URL, HttpMethod.GET, httpEntity, String.class);
         String result = responseEntity.getBody();
         return "@Controller(Client): " + result;
+    }
+
+    //RESPONSE HEADER
+    //Server header olusturup clienta gönderir
+    // http://localhost:8080/controller/response/header
+    @GetMapping("/controller/response/header")
+    @ResponseBody
+    public String getResponseHeaderController(){
+        String URL = "http://localhost:8080/service/response/header";
+        RestTemplate restTemplate = new RestTemplate();
+
+        ResponseEntity<String> data = restTemplate.exchange(URL, HttpMethod.GET, HttpEntity.EMPTY, String.class);
+        String gelenData = data.getHeaders().getFirst("key_response");
+        String body = data.getBody();
+        return "@Controller(Client): " + body + " " + gelenData;
     }
 }

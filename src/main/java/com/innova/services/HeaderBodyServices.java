@@ -14,8 +14,20 @@ public class HeaderBodyServices {
     // REQUEST HEADER
     // http://localhost:8080/service/client/header
     @GetMapping("/service/client/header")
-    public ResponseEntity<?> getHeader(@RequestHeader(value = "key_header", defaultValue = "default header") String gelenHeader){
+    public ResponseEntity<?> getRequestHeader(@RequestHeader(value = "key_header", defaultValue = "default header") String gelenHeader){
         log.info("@RestController(Server): "+ gelenHeader);
         return ResponseEntity.ok(gelenHeader);
+    }
+
+    //RESPONSE HEADER
+    //Server header olusturup clienta gönderir
+    // http://localhost:8080/service/response/header
+    @GetMapping("/service/response/header")
+    public ResponseEntity<?> getResponseHeader(){
+        return ResponseEntity
+                .ok()
+                .header("key_response", "Serverdan gelen response")
+                .body("@RestController: gelen veri");
+
     }
 }
