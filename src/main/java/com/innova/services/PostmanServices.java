@@ -9,10 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 @Log4j2
 public class PostmanServices {
 
-    //http://localhost:8080/rest/postman/dynamicsjson
+    //http://localhost:8080/api/rest/postman/dynamicsjson
     @GetMapping("/rest/postman/dynamicsjson")
     public ProductDto getDynamicsJson(){
         ProductDto productDto = ProductDto.builder()
