@@ -29,6 +29,6 @@ public class HeaderBodyController {
 
         ResponseEntity<String> responseEntity = restTemplate.exchange(URL, HttpMethod.GET, httpEntity, String.class);
         String result = responseEntity.getBody();
-        return result;
+        return "@Controller(Client): "+result;
     }
 }
