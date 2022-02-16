@@ -17,4 +17,16 @@ public class BeanDto {
     private String beanName;
     private String beanData;
 
+    //baslangıc
+    public void initialBEanMethod(){
+        log.info("Beanim Basladi...");
+
+    }
+
+    //bitis
+    public void destroyBEanMethod(){
+        log.error("Bean öldü gecmis olsun");
+
+    }
+
 }
