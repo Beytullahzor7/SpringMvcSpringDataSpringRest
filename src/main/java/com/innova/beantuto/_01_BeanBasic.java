@@ -4,10 +4,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class BeanConfig {
+public class _01_BeanBasic {
 
     @Bean
-    public BeanDto beanDto(){
+    public BeanDto beanBasic(){
         return BeanDto.builder().id(0L).beanName("Data").beanData("Adi 5555").build();
     }
 }

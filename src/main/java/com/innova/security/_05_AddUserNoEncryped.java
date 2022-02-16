@@ -7,14 +7,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 //@EnableWebSecurity
-public class _05_AddUserNoEncryped extends WebSecurityConfigurerAdapter {
-
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-        authenticationManagerBuilder
-                .inMemoryAuthentication()
-                .withUser("root")
-                .password("{noop}root")
-                .roles("USER");
-    }
-}
+//public class _05_AddUserNoEncryped extends WebSecurityConfigurerAdapter {
+//
+//    @Autowired
+//    public void configureGlobal(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+//        authenticationManagerBuilder
+//                .inMemoryAuthentication()
+//                .withUser("root")
+//                .password("{noop}root")
+//                .roles("USER");
+//    }
+//}
