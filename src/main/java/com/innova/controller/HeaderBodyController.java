@@ -66,7 +66,7 @@ public class HeaderBodyController {
         return "@Controller(Client): " + result;
     }
 
-    //REQUEST COOKIE
+    //RESPONSE COOKIE
     // http://localhost:8080/controller/response/cookie
     @GetMapping("/controller/response/cookie")
     @ResponseBody
