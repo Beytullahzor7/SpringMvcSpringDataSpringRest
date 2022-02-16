@@ -6,8 +6,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-//@EnableWebSecurity
-public class _08_SecurityAuthentication extends WebSecurityConfigurerAdapter {
+@EnableWebSecurity
+public class _09_SecurityLogin extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -15,10 +15,14 @@ public class _08_SecurityAuthentication extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/security/public","/security/success") //Bu @GetMapping izin vediğim url
                 .permitAll() //yukarıdaki sayfalara login olmadan izin ver
+                .antMatchers("/login").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
-                .formLogin();
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/security/private")
+                .and();
     }
 
     @Autowired
