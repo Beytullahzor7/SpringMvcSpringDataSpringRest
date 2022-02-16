@@ -1,21 +1,22 @@
+
 <!doctype html>
 <html  th:lang="${#locale.language}"  xmlns:th="http://www.thymeleaf.org" >
 <head>
-    <title>Private sayfası</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-    <!--    <link rel="stylesheet"   th:href="@{/css/style.css}">-->
-    <!--    <script th:src="@{/js/template.js}"></script>-->
+  <!--    <link rel="stylesheet"   th:href="@{/css/style.css}">-->
+  <!--    <script th:src="@{/js/template.js}"></script>-->
 </head>
 <body>
 <!--start codes-->
 
-<h1>Private Sayfası</h1>
+<h1 class="text-center">Çıkış Sayfası</h1>
+<h5 th:text="${key_logout}" class="text-center"></h5>
 <a href="/index" class="btn btn-primary"> Anasayfaya Git</a>
 <a href="/login" class="btn btn-primary"> Login sayfası Git</a>
-<a href="/logout" class="btn btn-primary"> Guvenli Cikis</a>
 
 
 <!--end codes-->
