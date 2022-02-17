@@ -1,8 +1,13 @@
 package com.innova.controller;
 
 import lombok.extern.log4j.Log4j2;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @Log4j2
@@ -15,6 +20,13 @@ public class SecurityController {
         return "public/index";
     }
 
+    // PRIVATE
+    // http://localhost:8080/security/private
+    @GetMapping("/security/private")
+    public String getPrivate(){
+        return "private/index";
+    }
+
     //SUCCESS
     // http://localhost:8080/security/success
     @GetMapping("/security/success")
@@ -22,10 +34,46 @@ public class SecurityController {
         return "/success";
     }
 
-    // PRIVATE
-    // http://localhost:8080/security/private
-    @GetMapping("/security/private")
-    public String getPrivate(){
-        return "private/index";
+    //ADMIN
+    // http://localhost:8080/security/admin
+    @GetMapping("/security/admin")
+    public String getAdmin(Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String user = "";
+        if(authentication != null){ //Null degilse yani kullanıcı var ise
+            System.out.println(authentication.getName());
+            user = authentication.getName();
+        }
+        model.addAttribute("system_user", user);
+        return "/superadmin/secret";
+    }
+
+    //WRITER
+    // http://localhost:8080/security/writer
+    @GetMapping("/security/writer")
+    public String getWriter(Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String user = "";
+        if(authentication != null){ //Null degilse yani kullanıcı var ise
+            System.out.println(authentication.getName());
+            user = authentication.getName();
+        }
+        model.addAttribute("system_user", user);
+        return "/writer/writer";
+    }
+
+    //ROLES
+    // http://localhost:8080/security/roles
+    @GetMapping("/security/roles")
+    @ResponseBody
+    public String getRoles(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String rols = "";
+        if(authentication != null){
+            for(GrantedAuthority grantedAuthority : authentication.getAuthorities()){
+                rols += grantedAuthority.getAuthority();
+            }
+        }
+        return "Sistemdeki yetkili roles: " + rols;
     }
 }
