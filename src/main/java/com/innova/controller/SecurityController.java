@@ -76,4 +76,17 @@ public class SecurityController {
         }
         return "Sistemdeki yetkili roles: " + rols;
     }
+
+    // FarkliKullanicilar Aynı Sayfada Farkl kullanıcılar
+    // http://localhost:8080/spesific_page
+    @GetMapping("/spesific_page")
+    public String getSpesific(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String user = "";
+        if (authentication != null) {
+            user = authentication.getName().toUpperCase();
+        }
+        model.addAttribute("system_user", user.toUpperCase());
+        return "/aynisayfafarklikullanici/farklikullanıcılar";
+    }
 }

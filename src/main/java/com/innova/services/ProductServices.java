@@ -50,7 +50,7 @@ public class ProductServices {
 
     ///////////
     // STATUS CODE
-    // http://localhost:8080/rest/status1
+    // http://localhost:808 0/rest/status1
     @GetMapping("/rest/status1")
     public ResponseEntity<ProductDto> getStatus1(){
         ProductDto productDto = ProductDto.builder().productId(0L).productName("Telefon1").productPrice(5000).build();
